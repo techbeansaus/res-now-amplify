@@ -1,0 +1,31 @@
+type FoodService @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  description: String
+  startTime: AWSTime
+  endTime: AWSTime
+  foodestablishmentID: ID! @index(name: "byFoodEstablishment")
+}
+
+type FoodEstablishment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  phone: String
+  email: AWSEmail
+  address: String
+  RESERVATIONS: [RESERVATIONS] @hasMany(indexName: "byFoodEstablishment", fields: ["id"])
+  FoodServices: [FoodService] @hasMany(indexName: "byFoodEstablishment", fields: ["id"])
+}
+
+type RESERVATIONS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  phone: AWSPhone
+  email: AWSEmail
+  bookingDate: AWSDate
+  bookingTime: AWSTime
+  numberOfGuests: Int
+  specialRequests: String
+  foodestablishmentID: ID! @index(name: "byFoodEstablishment")
+}
+ 

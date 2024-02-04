@@ -1,0 +1,95 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reservenow-staging-114803-authRole",
+      "UnauthRoleArn": "arn:aws:iam::113897480449:role/amplify-reservenow-staging-114803-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::113897480449:role/amplify-reservenow-staging-114803-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-reservenow-staging-114803-deployment",
+      "UnauthRoleName": "amplify-reservenow-staging-114803-unauthRole",
+      "StackName": "amplify-reservenow-staging-114803",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:113897480449:stack/amplify-reservenow-staging-114803/d62a1e40-fedf-11ed-b3d0-0ad674f08aa6",
+      "AmplifyAppId": "da0fjllyz6ccm"
+    }
+  },
+  "api": {
+    "reservenow": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        },
+        "GraphQLAPIIdOutput": "5nkvmuz2i5ebnmlxjztxyjczzq",
+        "GraphQLAPIEndpointOutput": "https://ygvzifkhefgonauykktrggrnki.appsync-api.ap-southeast-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-7lumrtdm4jhznijzppsmnf27li"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-08-03T11:53:51.211Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reservenow-staging-114803-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apireservenow"
+      }
+    }
+  },
+  "auth": {
+    "reservenow": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [
+          "PHONE_NUMBER"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "PHONE_NUMBER"
+        ],
+        "verificationMechanisms": [
+          "PHONE_NUMBER"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "CreatedSNSRole": "arn:aws:iam::113897480449:role/snsffc9d514114803-staging",
+        "UserPoolId": "ap-southeast-2_R7DYlbCCm",
+        "AppClientIDWeb": "1gbfc0ahuajd4qhof14529dov5",
+        "AppClientID": "7hv0a9b9l3p9dvs04br4765a7",
+        "IdentityPoolId": "ap-southeast-2:b5ae4fc0-1542-4e41-a6ff-00ad01fed374",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-southeast-2:113897480449:userpool/ap-southeast-2_R7DYlbCCm",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "reservenow"
+      },
+      "lastPushTimeStamp": "2023-08-03T11:53:51.213Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reservenow-staging-114803-deployment/amplify-cfn-templates/auth/reservenow-cloudformation-template.json",
+        "logicalId": "authreservenow"
+      },
+      "lastPushDirHash": "0W9vMLAnStNpISGR6n5yJsSqveo="
+    }
+  }
+}
